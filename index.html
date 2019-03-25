@@ -1,3 +1,44 @@
 <html>
-  test
+    <head>
+
+    </head>
+    <body>
+        <div id="gradient">
+          <div id="text">
+            <img src="images/ayam.jpg" />
+            <h1>I'm kinda still working on it</h1>
+          </div>
+        </div>
+    </body>
 </html>
+<style>
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    max-height:100vh;
+ }
+
+#gradient {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#text {
+    color: #fff;
+    font-family: 'Roboto', 'San Francisco', 'Helvetica Neue','Segoe UI', Arial, Verdana, sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    padding: 20vh 10vw;
+}
+
+h1 {
+  mix-blend-mode: difference;
+}
+</style>
+<script>
+var colors=new Array([62,35,255],[60,255,60],[255,35,98],[45,175,230],[255,0,255],[255,128,0]),step=0,colorIndices=[0,1,2,3],gradientSpeed=.002;function updateGradient(){var o=document.getElementById("gradient"),e=colors[colorIndices[0]],r=colors[colorIndices[1]],t=colors[colorIndices[2]],n=colors[colorIndices[3]],c=1-step,d="rgb("+Math.round(c*e[0]+step*r[0])+","+Math.round(c*e[1]+step*r[1])+","+Math.round(c*e[2]+step*r[2])+")",s="rgb("+Math.round(c*t[0]+step*n[0])+","+Math.round(c*t[1]+step*n[1])+","+Math.round(c*t[2]+step*n[2])+")";o.style.background="-webkit-gradient(linear, left top, right top, from("+d+"), to("+s+"))",1<=(step+=gradientSpeed)&&(step%=1,colorIndices[0]=colorIndices[1],colorIndices[2]=colorIndices[3],colorIndices[1]=(colorIndices[1]+Math.floor(1+Math.random()*(colors.length-1)))%colors.length,colorIndices[3]=(colorIndices[3]+Math.floor(1+Math.random()*(colors.length-1)))%colors.length)}setInterval(updateGradient,10);
+</script>
